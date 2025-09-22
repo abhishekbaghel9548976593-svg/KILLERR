@@ -1,29 +1,26 @@
-package com.demo;
+package hello;
+	public class NumberCheck {
+	    public static void main(String[] args) {
+	        String[] inputs = {"123", "12.34", "abc"};
 
-import java.util.Scanner;
+	        for (String input : inputs) {
+	            System.out.println("Input: \"" + input + "\" → Is number: " + isNumber(input));
+	        }
+	    }
 
-public class NumberCheck {
-   public static int checkNumber(int num) {
-      if (num > 0) {
-         return 1;
-      } else {
-         return num < 0 ? -1 : 0;
-      }
-   }
+	    public static boolean isNumber(String str) {
+	        if (str == null || str.isEmpty()) {
+	            return false;
+	        }
 
-   public static void main(String[] args) {
-      Scanner sc = new Scanner(System.in);
-      System.out.print("Enter a number: ");
-      int number = sc.nextInt();
-      int result = checkNumber(number);
-      if (result == 1) {
-         System.out.println("The number is Positive.");
-      } else if (result == -1) {
-         System.out.println("The number is Negative.");
-      } else {
-         System.out.println("The number is Zero.");
-      }
+	        try {
+	            Double.parseDouble(str);
+	            return true;
+	        } catch (NumberFormatException e) {
+	            return false;
+	        }
+	    }
+	}
 
-      sc.close();
-   }
-}
+
+
