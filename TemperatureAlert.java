@@ -1,18 +1,17 @@
-package endterm;
+package Interfaces;
+
 import java.util.function.Predicate;
+
 public class TemperatureAlert {
-	 public static void main(String[] args) {
-	        double threshold = 37.5;
-	        double currentTemperature = 38.7;
+    public static void main(String[] args) {
+        Predicate<Double> isHighTemp = temp -> temp > 40.0;
+        double currentTemp = 42.5;
 
-	        Predicate<Double> isAboveThreshold = temp -> temp > threshold;
-
-	        if(isAboveThreshold.test(currentTemperature)) {
-	            System.out.println("Alert");
-	        } else {
-	            System.out.println("Temperature is normal.");
-	        }
-	    }
-	
-
+        if (isHighTemp.test(currentTemp)) {
+            System.out.println("High Temperature Alert!");
+        } else {
+            System.out.println("Temperature Normal");
+        }
+    }
 }
+
